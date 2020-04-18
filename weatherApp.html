@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🌂Weather APP🌞 Ya-Ju</title>
+    <script
+      src="https://kit.fontawesome.com/120f2cf90a.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="src/style.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <p class="city">
+        <i class="fas fa-baby"></i> Taipei
+        <span class="home"> <i class="fas fa-home"></i> Porto </span>
+        <span> <i class="fas fa-plane-departure"></i> Shanghai </span>
+      </p>
+      <br />
+      <form id="search-form">
+        <div class="form-group">
+          <input type="text" id="form-text" placeholder="🔎 Enter a city" />
+          <input type="submit" value="GO🗺" class="go" />
+        </div>
+      </form>
+      <span>
+        <button class="now" id="currentLocation">Current Location</button>
+      </span>
+      <h1>
+        Porto
+      </h1>
+      <p class="dateandtime">
+        <i class="fas fa-calendar-alt"></i>
+        <span id="date">Sunday March 22, 2020</span>
+        <i class="fas fa-clock"></i> <span id="time">01:34</span>
+      </p>
+
+      <h2>
+        <span id="condition"></span> <i class="fas fa-cloud"></i>
+        <span id="tempNumber"></span>
+        <span class="units">
+          <a href="#" id="c-link">°C</a> |
+          <a href="#" id="f-link">°F</a>
+        </span>
+        <small>
+          <div>
+            <i class="fas fa-thermometer-half"></i> Real feel:
+            <span id="tempNumber1">21</span>
+            <span class="units">
+              <a href="#" id="c-link1">°C</a> |
+              <a href="#" id="f-link1">°F</a>
+            </span>
+          </div>
+        </small>
+      </h2>
+
+      <div class="extrainfo">
+        <i class="fas fa-tint"></i> Humidity: 
+        <span id="humidity"></span>% 
+        <div><i class="fas fa-wind"></i> Wind: 
+        <span id="wind"></span>km/h
+        </div>
+      </div>
+
+      <div class="weather">
+        <small>
+          <div class="row">
+            <div class="col-2">
+              Monday
+            </div>
+            <div class="col-2">
+              Tuesday
+            </div>
+            <div class="col-2">
+              Wednesday
+            </div>
+            <div class="col-2">
+              Thursday
+            </div>
+            <div class="col-2">
+              Friday
+            </div>
+          </div>
+        </small>
+        <div class="row">
+          <div class="col-2">
+            <i class="fas fa-cloud-rain"></i>
+          </div>
+          <div class="col-2">
+            <i class="fas fa-cloud-rain"></i>
+          </div>
+          <div class="col-2">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <div class="col-2">
+            <i class="fas fa-cloud-sun"></i>
+          </div>
+          <div class="col-2">
+            <i class="fas fa-cloud"></i>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2"><strong>24°</strong> 19°</div>
+          <div class="col-2"><strong>24°</strong> 21°</div>
+          <div class="col-2"><strong>28°</strong> 21°</div>
+          <div class="col-2"><strong>28°</strong> 21°</div>
+          <div class="col-2"><strong>29°</strong> 20°</div>
+        </div>
+      </div>
+    </div>
+    <script src="src/city-weather.js"></script>
+  </body>
+</html>

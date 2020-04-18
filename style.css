@@ -1,0 +1,61 @@
+.container {
+    border: solid #006ec5;
+    border-radius: 10px;
+    padding: 10px 60px 30px 60px;
+    text-align: center;
+    font-family: "Baloo Thambi 2", cursive;
+  }
+  input {
+    border-radius: 10px;
+    border: solid #006ec5;
+    width: 33%;
+  }
+  
+  h1,
+.dateandtime,
+  h2 {
+    color: #5a6275;
+  }
+  
+.extrainfo {
+    color: #a3a9b6;
+  }
+  
+.city {
+    color: #ff8686;
+    padding: 30px 0px 5px 0px;
+    font-size: 20px;
+  }
+  
+.home {
+    padding: 0 20px;
+  }
+.go {
+    border: solid #50b272;
+    color: #e8f3dc;
+    background: #50b272;
+    width: 75px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+.now {
+    border: solid #e8f3dc;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+    color: #50b272;
+    background: #e8f3dc;
+    width: 150px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  
+.weather {
+    color: #006ec5;
+    text-align: center;
+    position: relative;
+    left: 40px;
+    font-size: 23px;
+    margin: 30px 0;
+  }
+  
