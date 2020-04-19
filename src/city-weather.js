@@ -1,3 +1,6 @@
+document.querySelector("#city-birth").innerHTML= prompt("Where is your birthplace?");
+document.querySelector("#city-living").innerHTML= prompt("Where are you living?");
+document.querySelector("#nextTrip").innerHTML= prompt("Where is your next destination?");
 let now= new Date();
 
 let days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
