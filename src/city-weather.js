@@ -29,9 +29,10 @@ function showWeather(response){
    let tempC=document.querySelector("#tempNumber");
    tempC.innerHTML=`${Math.round(response.data.main.temp)}`;
    let updateCondition=document.querySelector("#condition");
-   updateCondition.innerHTML=`${response.data.weather[0].main}`;
+   updateCondition.innerHTML=`${response.data.weather[0].description}`;
    document.querySelector("#humidity").innerHTML=`${response.data.main.humidity}`;
    document.querySelector("#wind").innerHTML=`${response.data.wind.speed}`;
+   document.querySelector("#iconElement").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 function searchInitial(city){
@@ -67,9 +68,10 @@ function showPosition()
    let tempC=document.querySelector("#tempNumber");
    tempC.innerHTML=`${Math.round(response.data.main.temp)}`;
    let updateCondition=document.querySelector("#condition");
-   updateCondition.innerHTML=`${response.data.weather[0].main}`;
+   updateCondition.innerHTML=`${response.data.weather[0].description}`;
    document.querySelector("#humidity").innerHTML=`${response.data.main.humidity}`;
    document.querySelector("#wind").innerHTML=`${response.data.wind.speed}`;
+   document.querySelector("#iconElement").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
    }
 }
 
