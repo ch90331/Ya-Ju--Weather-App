@@ -4,6 +4,7 @@
     padding: 10px 60px 30px 60px;
     text-align: center;
     font-family: "Baloo Thambi 2", cursive;
+    text-transform: capitalize;
   }
   input {
     border-radius: 10px;
@@ -19,7 +20,19 @@
   h2 {
     color: #5a6275;
   }
-  
+
+.units{
+   position: relative;
+   top:-10px;
+   font-size: 16px;
+}
+
+.units1{
+  position: relative;
+  top:-8px;
+  font-size: 12px;
+}
+
 .extrainfo {
     color: #a3a9b6;
   }

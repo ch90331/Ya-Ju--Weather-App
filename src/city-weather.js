@@ -28,6 +28,8 @@ function showWeather(response){
    city.innerHTML=`${response.data.name}`;
    let tempC=document.querySelector("#tempNumber");
    tempC.innerHTML=`${Math.round(response.data.main.temp)}`;
+   let tempC1=document.querySelector("#tempNumber1");
+   tempC1.innerHTML=`${Math.round(response.data.main.feels_like)}`;
    let updateCondition=document.querySelector("#condition");
    updateCondition.innerHTML=`${response.data.weather[0].description}`;
    document.querySelector("#humidity").innerHTML=`${response.data.main.humidity}`;
@@ -67,6 +69,8 @@ function showPosition()
    where.innerHTML=`${response.data.name}`;
    let tempC=document.querySelector("#tempNumber");
    tempC.innerHTML=`${Math.round(response.data.main.temp)}`;
+   let tempC1=document.querySelector("#tempNumber1");
+   tempC1.innerHTML=`${Math.round(response.data.main.feels_like)}`;
    let updateCondition=document.querySelector("#condition");
    updateCondition.innerHTML=`${response.data.weather[0].description}`;
    document.querySelector("#humidity").innerHTML=`${response.data.main.humidity}`;
