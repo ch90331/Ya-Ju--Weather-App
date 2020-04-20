@@ -1,27 +1,30 @@
 document.querySelector("#city-birth").innerHTML= prompt("Where is your birthplace?");
 document.querySelector("#city-living").innerHTML= prompt("Where are you living?");
 document.querySelector("#nextTrip").innerHTML= prompt("Where is your next destination?");
-let now= new Date();
 
-let days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-let day=days[now.getDay()];
-let months=["January","February","March","April","May","June","July","August","September","October","November","December"];
-let month=months[now.getMonth()];
-let date=now.getDate();
-let year=now.getFullYear();
-let hour=now.getHours();
-if(hour<10){
+function formatDate(timestamp){
+    let update=new Date(timestamp);
+    let days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    let day=days[update.getDay()];
+    let months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+    let month=months[update.getMonth()];
+    let date=update.getDate();
+    let year=update.getFullYear();
+    return `${day} ${month} ${date}, ${year}`;
+}
+
+function formatTime(timestamp){
+    let update=new Date(timestamp);
+    let hour=update.getHours();
+    if(hour<10){
     let hour=`0${hour}`;
-}
-let min=now.getMinutes();
-if(min<10){
+    }
+    let min=update.getMinutes();
+    if(min<10){
     let min=`0${min}`;
+    }
+    return `${hour}:${min}`;
 }
-let currentDate=document.querySelector("#date");
-currentDate.innerHTML=`${day} ${month} ${date}, ${year}`;
-let currentTime=document.querySelector("#time");
-currentTime.innerHTML=`${hour}:${min}`;
-
 function showWeather(response){
    console.log(response.data);
    let city=document.querySelector("h1");
@@ -35,6 +38,8 @@ function showWeather(response){
    document.querySelector("#humidity").innerHTML=`${response.data.main.humidity}`;
    document.querySelector("#wind").innerHTML=`${response.data.wind.speed}`;
    document.querySelector("#iconElement").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+   document.querySelector("#time").innerHTML=formatTime(response.data.dt*1000);
+   document.querySelector("#date").innerHTML=formatDate(response.data.dt*1000);
 }
 
 function searchInitial(city){
@@ -76,6 +81,8 @@ function showPosition()
    document.querySelector("#humidity").innerHTML=`${response.data.main.humidity}`;
    document.querySelector("#wind").innerHTML=`${response.data.wind.speed}`;
    document.querySelector("#iconElement").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+   document.querySelector("#time").innerHTML=formatTime(response.data.dt*1000);
+   document.querySelector("#date").innerHTML=formatDate(response.data.dt*1000);
    }
 }
 
