@@ -1,6 +1,16 @@
-document.querySelector("#city-birth").innerHTML= prompt("Where is your birthplace?");
+let cityBirth= prompt("Where is your birthplace?");
+document.querySelector("#city-birth").innerHTML= `${cityBirth}`;
+
+function showCityBirth(event){
+    event.preventDefault();
+    let apiKey=`2705c3833e0eb8cc3d104831dddd5c14`;
+    let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(showWeather);
+}
+document.querySelector("#city-birth").addEventListener("click",showCityBirth);
 document.querySelector("#city-living").innerHTML= prompt("Where are you living?");
 document.querySelector("#nextTrip").innerHTML= prompt("Where is your next destination?");
+
 
 function formatDate(timestamp){
     let update=new Date(timestamp);
@@ -29,10 +39,14 @@ function showWeather(response){
    console.log(response.data);
    let city=document.querySelector("h1");
    city.innerHTML=`${response.data.name}`;
+
+   celsiusTemperature= response.data.main.temp;
+   celsiusTemperature1= response.data.main.feels_like;
+
    let tempC=document.querySelector("#tempNumber");
-   tempC.innerHTML=`${Math.round(response.data.main.temp)}`;
+   tempC.innerHTML=`${Math.round(celsiusTemperature)}`;
    let tempC1=document.querySelector("#tempNumber1");
-   tempC1.innerHTML=`${Math.round(response.data.main.feels_like)}`;
+   tempC1.innerHTML=`${Math.round(celsiusTemperature1)}`;
    let updateCondition=document.querySelector("#condition");
    updateCondition.innerHTML=`${response.data.weather[0].description}`;
    document.querySelector("#humidity").innerHTML=`${response.data.main.humidity}`;
@@ -43,7 +57,7 @@ function showWeather(response){
 }
 
 function searchInitial(city){
-    document.querySelector("h1").innerHTML=`Porto`;
+    document.querySelector("h1").innerHTML=`${city}`;
     let apiKey=`2705c3833e0eb8cc3d104831dddd5c14`;
     let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(showWeather);
@@ -59,7 +73,6 @@ function showCity(event){
 let form=document.querySelector("#search-form");
 form.addEventListener("submit",showCity);
 
-
 function showPosition()
 {   navigator.geolocation.getCurrentPosition(retrievePosition);
     function retrievePosition(position) {
@@ -72,10 +85,14 @@ function showPosition()
    function showCurrentWeather(response){
    let where= document.querySelector("h1");
    where.innerHTML=`${response.data.name}`;
+
+   celsiusTemperature= response.data.main.temp;
+   celsiusTemperature1= response.data.main.feels_like;
+
    let tempC=document.querySelector("#tempNumber");
-   tempC.innerHTML=`${Math.round(response.data.main.temp)}`;
+   tempC.innerHTML=`${Math.round(celsiusTemperature)}`;
    let tempC1=document.querySelector("#tempNumber1");
-   tempC1.innerHTML=`${Math.round(response.data.main.feels_like)}`;
+   tempC1.innerHTML=`${Math.round(celsiusTemperature1)}`;
    let updateCondition=document.querySelector("#condition");
    updateCondition.innerHTML=`${response.data.weather[0].description}`;
    document.querySelector("#humidity").innerHTML=`${response.data.main.humidity}`;
@@ -96,5 +113,48 @@ function retrievePosition(position) {
 
 let place= document.querySelector("#currentLocation");
 place.addEventListener("click", showPosition);
+
+function showTempF(event){
+    event.preventDefault();
+    let tempF=document.querySelector("#tempNumber");
+    tempF.innerHTML= Math.round(celsiusTemperature*9/5+32);
+    let tempF1=document.querySelector("#tempNumber1");
+    tempF1.innerHTML= Math.round(celsiusTemperature1*9/5+32);
+}
+
+function showTempC(event){
+    event.preventDefault();
+    let tempC=document.querySelector("#tempNumber");
+    tempC.innerHTML= Math.round(celsiusTemperature);
+    let tempC1=document.querySelector("#tempNumber1");
+    tempC1.innerHTML= Math.round(celsiusTemperature1);
+}
+
+function showTempF1(event){
+    event.preventDefault();
+    let tempF1=document.querySelector("#tempNumber1");
+    tempF1.innerHTML= Math.round(celsiusTemperature1*9/5+32);
+    let tempF=document.querySelector("#tempNumber");
+    tempF.innerHTML= Math.round(celsiusTemperature*9/5+32);
+}
+
+function showTempC1(event){
+    event.preventDefault();
+    let tempC1=document.querySelector("#tempNumber1");
+    tempC1.innerHTML= Math.round(celsiusTemperature1);
+    let tempC=document.querySelector("#tempNumber");
+    tempC.innerHTML= Math.round(celsiusTemperature);
+}
+let unit3=document.querySelector("#f-link1");
+unit3.addEventListener("click",showTempF1);
+let unit4=document.querySelector("#c-link1");
+unit4.addEventListener("click",showTempC1);
+
+
+let celsiusTemperature= null;
+let celsiusTemperature1= null;
+
+document.querySelector("#f-link").addEventListener("click",showTempF);
+document.querySelector("#c-link").addEventListener("click",showTempC);
 
 searchInitial("porto");
