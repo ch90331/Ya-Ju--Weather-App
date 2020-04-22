@@ -134,6 +134,10 @@ function showTempF(event){
     tempF.innerHTML= Math.round(celsiusTemperature*9/5+32);
     let tempF1=document.querySelector("#tempNumber1");
     tempF1.innerHTML= Math.round(celsiusTemperature1*9/5+32);
+    document.querySelector("#c-link").classList.remove("active");
+    document.querySelector("#c-link1").classList.remove("active");
+    document.querySelector("#f-link").classList.add("active");
+    document.querySelector("#f-link1").classList.add("active");
 }
 
 function showTempC(event){
@@ -142,6 +146,10 @@ function showTempC(event){
     tempC.innerHTML= Math.round(celsiusTemperature);
     let tempC1=document.querySelector("#tempNumber1");
     tempC1.innerHTML= Math.round(celsiusTemperature1);
+    document.querySelector("#c-link").classList.add("active");
+    document.querySelector("#c-link1").classList.add("active");
+    document.querySelector("#f-link").classList.remove("active");
+    document.querySelector("#f-link1").classList.remove("active");
 }
 
 function showTempF1(event){
@@ -150,6 +158,10 @@ function showTempF1(event){
     tempF1.innerHTML= Math.round(celsiusTemperature1*9/5+32);
     let tempF=document.querySelector("#tempNumber");
     tempF.innerHTML= Math.round(celsiusTemperature*9/5+32);
+    document.querySelector("#c-link").classList.remove("active");
+    document.querySelector("#c-link1").classList.remove("active");
+    document.querySelector("#f-link").classList.add("active");
+    document.querySelector("#f-link1").classList.add("active");
 }
 
 function showTempC1(event){
@@ -158,17 +170,20 @@ function showTempC1(event){
     tempC1.innerHTML= Math.round(celsiusTemperature1);
     let tempC=document.querySelector("#tempNumber");
     tempC.innerHTML= Math.round(celsiusTemperature);
+    document.querySelector("#c-link").classList.add("active");
+    document.querySelector("#c-link1").classList.add("active");
+    document.querySelector("#f-link").classList.remove("active");
+    document.querySelector("#f-link1").classList.remove("active");
 }
-let unit3=document.querySelector("#f-link1");
-unit3.addEventListener("click",showTempF1);
-let unit4=document.querySelector("#c-link1");
-unit4.addEventListener("click",showTempC1);
 
+document.querySelector("#f-link").addEventListener("click",showTempF);
+document.querySelector("#c-link").addEventListener("click",showTempC);
+document.querySelector("#f-link1").addEventListener("click",showTempF1);
+document.querySelector("#c-link1").addEventListener("click",showTempC1);
 
 let celsiusTemperature= null;
 let celsiusTemperature1= null;
 
-document.querySelector("#f-link").addEventListener("click",showTempF);
-document.querySelector("#c-link").addEventListener("click",showTempC);
+
 
 searchInitial("porto");

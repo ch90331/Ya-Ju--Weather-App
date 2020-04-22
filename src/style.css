@@ -9,8 +9,9 @@
 
   input {
     border-radius: 10px;
-    border: solid #006ec5;
+    border: solid #50b272;
     width: 33%;
+    
   }
   .github{
     text-align: center;
@@ -74,4 +75,14 @@
     font-size: 23px;
     margin: 30px 0;
   }
+
+  .units .active,.units1 .active{
+    color:#5a6275;
+    cursor: default;
+  }
+
+  .units .active,.units1 .active:hover{
+    text-decoration: none;
+  }
+
   
