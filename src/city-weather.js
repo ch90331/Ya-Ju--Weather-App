@@ -1,16 +1,30 @@
-let cityBirth= prompt("Where is your birthplace?");
+let cityBirth= prompt("Where is your birthplace?👶🏻");
 document.querySelector("#city-birth").innerHTML= `${cityBirth}`;
 
 function showCityBirth(event){
     event.preventDefault();
-    let apiKey=`2705c3833e0eb8cc3d104831dddd5c14`;
-    let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(showWeather);
+    searchInitial(`${cityBirth}`);
 }
-document.querySelector("#city-birth").addEventListener("click",showCityBirth);
-document.querySelector("#city-living").innerHTML= prompt("Where are you living?");
-document.querySelector("#nextTrip").innerHTML= prompt("Where is your next destination?");
 
+let cityLiving= prompt("Where are you living?🏠");
+document.querySelector("#city-living").innerHTML= `${cityLiving}`;
+
+function showCityLiving(event){
+    event.preventDefault();
+    searchInitial(`${cityLiving}`);
+}
+
+let cityNext= prompt("Where is your next destination?🛫");
+document.querySelector("#nextTrip").innerHTML= `${cityNext}`;
+
+function showCityNext(event){
+    event.preventDefault();
+    searchInitial(`${cityNext}`);
+}
+
+document.querySelector("#city-birth").addEventListener("click",showCityBirth);
+document.querySelector("#city-living").addEventListener("click", showCityLiving);
+document.querySelector("#nextTrip").addEventListener("click", showCityNext);
 
 function formatDate(timestamp){
     let update=new Date(timestamp);
