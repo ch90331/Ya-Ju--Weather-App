@@ -71,18 +71,32 @@ function showWeather(response){
 }
 
 function displayForecast(response){
-    document.querySelector("#tempH1").innerHTML=`${Math.round(response.data.list[0].main.temp_max)}`;
-    document.querySelector("#tempH2").innerHTML=`${Math.round(response.data.list[1].main.temp_max)}`;
-    document.querySelector("#tempH3").innerHTML=`${Math.round(response.data.list[2].main.temp_max)}`;
-    document.querySelector("#tempH4").innerHTML=`${Math.round(response.data.list[3].main.temp_max)}`;
-    document.querySelector("#tempH5").innerHTML=`${Math.round(response.data.list[4].main.temp_max)}`;
-    document.querySelector("#tempH6").innerHTML=`${Math.round(response.data.list[5].main.temp_max)}`;
-    document.querySelector("#tempL1").innerHTML=`${Math.round(response.data.list[0].main.temp_min)}`;
-    document.querySelector("#tempL2").innerHTML=`${Math.round(response.data.list[1].main.temp_min)}`;
-    document.querySelector("#tempL3").innerHTML=`${Math.round(response.data.list[2].main.temp_min)}`;
-    document.querySelector("#tempL4").innerHTML=`${Math.round(response.data.list[3].main.temp_min)}`;
-    document.querySelector("#tempL5").innerHTML=`${Math.round(response.data.list[4].main.temp_min)}`;
-    document.querySelector("#tempL6").innerHTML=`${Math.round(response.data.list[5].main.temp_min)}`;
+
+    celsiusTemperatureForecastH1= response.data.list[0].main.temp_max;
+    celsiusTemperatureForecastH2= response.data.list[1].main.temp_max;
+    celsiusTemperatureForecastH3= response.data.list[2].main.temp_max;
+    celsiusTemperatureForecastH4= response.data.list[3].main.temp_max;
+    celsiusTemperatureForecastH5= response.data.list[4].main.temp_max;
+    celsiusTemperatureForecastH6= response.data.list[5].main.temp_max;
+    celsiusTemperatureForecastL1= response.data.list[0].main.temp_min;
+    celsiusTemperatureForecastL2= response.data.list[1].main.temp_min;
+    celsiusTemperatureForecastL3= response.data.list[2].main.temp_min;
+    celsiusTemperatureForecastL4= response.data.list[3].main.temp_min;
+    celsiusTemperatureForecastL5= response.data.list[4].main.temp_min;
+    celsiusTemperatureForecastL6= response.data.list[5].main.temp_min;
+
+    document.querySelector("#tempH1").innerHTML=`${Math.round(celsiusTemperatureForecastH1)}`;
+    document.querySelector("#tempH2").innerHTML=`${Math.round(celsiusTemperatureForecastH2)}`;
+    document.querySelector("#tempH3").innerHTML=`${Math.round(celsiusTemperatureForecastH3)}`;
+    document.querySelector("#tempH4").innerHTML=`${Math.round(celsiusTemperatureForecastH4)}`;
+    document.querySelector("#tempH5").innerHTML=`${Math.round(celsiusTemperatureForecastH5)}`;
+    document.querySelector("#tempH6").innerHTML=`${Math.round(celsiusTemperatureForecastH6)}`;
+    document.querySelector("#tempL1").innerHTML=`${Math.round(celsiusTemperatureForecastL1)}`;
+    document.querySelector("#tempL2").innerHTML=`${Math.round(celsiusTemperatureForecastL2)}`;
+    document.querySelector("#tempL3").innerHTML=`${Math.round(celsiusTemperatureForecastL3)}`;
+    document.querySelector("#tempL4").innerHTML=`${Math.round(celsiusTemperatureForecastL4)}`;
+    document.querySelector("#tempL5").innerHTML=`${Math.round(celsiusTemperatureForecastL5)}`;
+    document.querySelector("#tempL6").innerHTML=`${Math.round(celsiusTemperatureForecastL6)}`;
     document.querySelector("#icon1").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.list[0].weather[0].icon}@2x.png`);
     document.querySelector("#icon2").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.list[1].weather[0].icon}@2x.png`);
     document.querySelector("#icon3").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.list[2].weather[0].icon}@2x.png`);
@@ -164,6 +178,18 @@ function showTempF(event){
     tempF.innerHTML= Math.round(celsiusTemperature*9/5+32);
     let tempF1=document.querySelector("#tempNumber1");
     tempF1.innerHTML= Math.round(celsiusTemperature1*9/5+32);
+    document.querySelector("#tempH1").innerHTML= Math.round(celsiusTemperatureForecastH1*9/5+32);
+    document.querySelector("#tempH2").innerHTML= Math.round(celsiusTemperatureForecastH2*9/5+32);
+    document.querySelector("#tempH3").innerHTML= Math.round(celsiusTemperatureForecastH3*9/5+32);
+    document.querySelector("#tempH4").innerHTML= Math.round(celsiusTemperatureForecastH4*9/5+32);
+    document.querySelector("#tempH5").innerHTML= Math.round(celsiusTemperatureForecastH5*9/5+32);
+    document.querySelector("#tempH6").innerHTML= Math.round(celsiusTemperatureForecastH6*9/5+32);
+    document.querySelector("#tempL1").innerHTML= Math.round(celsiusTemperatureForecastL1*9/5+32);
+    document.querySelector("#tempL2").innerHTML= Math.round(celsiusTemperatureForecastL2*9/5+32);
+    document.querySelector("#tempL3").innerHTML= Math.round(celsiusTemperatureForecastL3*9/5+32);
+    document.querySelector("#tempL4").innerHTML= Math.round(celsiusTemperatureForecastL4*9/5+32);
+    document.querySelector("#tempL5").innerHTML= Math.round(celsiusTemperatureForecastL5*9/5+32);
+    document.querySelector("#tempL6").innerHTML= Math.round(celsiusTemperatureForecastL6*9/5+32);
     document.querySelector("#c-link").classList.remove("active");
     document.querySelector("#c-link1").classList.remove("active");
     document.querySelector("#f-link").classList.add("active");
@@ -176,6 +202,18 @@ function showTempC(event){
     tempC.innerHTML= Math.round(celsiusTemperature);
     let tempC1=document.querySelector("#tempNumber1");
     tempC1.innerHTML= Math.round(celsiusTemperature1);
+    document.querySelector("#tempH1").innerHTML= Math.round(celsiusTemperatureForecastH1);
+    document.querySelector("#tempH2").innerHTML= Math.round(celsiusTemperatureForecastH2);
+    document.querySelector("#tempH3").innerHTML= Math.round(celsiusTemperatureForecastH3);
+    document.querySelector("#tempH4").innerHTML= Math.round(celsiusTemperatureForecastH4);
+    document.querySelector("#tempH5").innerHTML= Math.round(celsiusTemperatureForecastH5);
+    document.querySelector("#tempH6").innerHTML= Math.round(celsiusTemperatureForecastH6);
+    document.querySelector("#tempL1").innerHTML= Math.round(celsiusTemperatureForecastL1);
+    document.querySelector("#tempL2").innerHTML= Math.round(celsiusTemperatureForecastL2);
+    document.querySelector("#tempL3").innerHTML= Math.round(celsiusTemperatureForecastL3);
+    document.querySelector("#tempL4").innerHTML= Math.round(celsiusTemperatureForecastL4);
+    document.querySelector("#tempL5").innerHTML= Math.round(celsiusTemperatureForecastL5);
+    document.querySelector("#tempL6").innerHTML= Math.round(celsiusTemperatureForecastL6);
     document.querySelector("#c-link").classList.add("active");
     document.querySelector("#c-link1").classList.add("active");
     document.querySelector("#f-link").classList.remove("active");
@@ -188,6 +226,18 @@ function showTempF1(event){
     tempF1.innerHTML= Math.round(celsiusTemperature1*9/5+32);
     let tempF=document.querySelector("#tempNumber");
     tempF.innerHTML= Math.round(celsiusTemperature*9/5+32);
+    document.querySelector("#tempH1").innerHTML= Math.round(celsiusTemperatureForecastH1*9/5+32);
+    document.querySelector("#tempH2").innerHTML= Math.round(celsiusTemperatureForecastH2*9/5+32);
+    document.querySelector("#tempH3").innerHTML= Math.round(celsiusTemperatureForecastH3*9/5+32);
+    document.querySelector("#tempH4").innerHTML= Math.round(celsiusTemperatureForecastH4*9/5+32);
+    document.querySelector("#tempH5").innerHTML= Math.round(celsiusTemperatureForecastH5*9/5+32);
+    document.querySelector("#tempH6").innerHTML= Math.round(celsiusTemperatureForecastH6*9/5+32);
+    document.querySelector("#tempL1").innerHTML= Math.round(celsiusTemperatureForecastL1*9/5+32);
+    document.querySelector("#tempL2").innerHTML= Math.round(celsiusTemperatureForecastL2*9/5+32);
+    document.querySelector("#tempL3").innerHTML= Math.round(celsiusTemperatureForecastL3*9/5+32);
+    document.querySelector("#tempL4").innerHTML= Math.round(celsiusTemperatureForecastL4*9/5+32);
+    document.querySelector("#tempL5").innerHTML= Math.round(celsiusTemperatureForecastL5*9/5+32);
+    document.querySelector("#tempL6").innerHTML= Math.round(celsiusTemperatureForecastL6*9/5+32);
     document.querySelector("#c-link").classList.remove("active");
     document.querySelector("#c-link1").classList.remove("active");
     document.querySelector("#f-link").classList.add("active");
@@ -200,6 +250,18 @@ function showTempC1(event){
     tempC1.innerHTML= Math.round(celsiusTemperature1);
     let tempC=document.querySelector("#tempNumber");
     tempC.innerHTML= Math.round(celsiusTemperature);
+    document.querySelector("#tempH1").innerHTML= Math.round(celsiusTemperatureForecastH1);
+    document.querySelector("#tempH2").innerHTML= Math.round(celsiusTemperatureForecastH2);
+    document.querySelector("#tempH3").innerHTML= Math.round(celsiusTemperatureForecastH3);
+    document.querySelector("#tempH4").innerHTML= Math.round(celsiusTemperatureForecastH4);
+    document.querySelector("#tempH5").innerHTML= Math.round(celsiusTemperatureForecastH5);
+    document.querySelector("#tempH6").innerHTML= Math.round(celsiusTemperatureForecastH6);
+    document.querySelector("#tempL1").innerHTML= Math.round(celsiusTemperatureForecastL1);
+    document.querySelector("#tempL2").innerHTML= Math.round(celsiusTemperatureForecastL2);
+    document.querySelector("#tempL3").innerHTML= Math.round(celsiusTemperatureForecastL3);
+    document.querySelector("#tempL4").innerHTML= Math.round(celsiusTemperatureForecastL4);
+    document.querySelector("#tempL5").innerHTML= Math.round(celsiusTemperatureForecastL5);
+    document.querySelector("#tempL6").innerHTML= Math.round(celsiusTemperatureForecastL6);
     document.querySelector("#c-link").classList.add("active");
     document.querySelector("#c-link1").classList.add("active");
     document.querySelector("#f-link").classList.remove("active");
@@ -213,6 +275,19 @@ document.querySelector("#c-link1").addEventListener("click",showTempC1);
 
 let celsiusTemperature= null;
 let celsiusTemperature1= null;
+let celsiusTemperatureForecastH1= null;
+let celsiusTemperatureForecastH2= null;
+let celsiusTemperatureForecastH3= null;
+let celsiusTemperatureForecastH4= null;
+let celsiusTemperatureForecastH5= null;
+let celsiusTemperatureForecastH6= null;
+let celsiusTemperatureForecastL1= null;
+let celsiusTemperatureForecastL2= null;
+let celsiusTemperatureForecastL3= null;
+let celsiusTemperatureForecastL4= null;
+let celsiusTemperatureForecastL5= null;
+let celsiusTemperatureForecastL6= null;
+
 
 
 
