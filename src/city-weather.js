@@ -41,14 +41,16 @@ function formatTime(timestamp){
     let update=new Date(timestamp);
     let hour=update.getHours();
     if(hour<10){
-    let hour=`0${hour}`;
+       hour=`0${hour}`;
     }
     let min=update.getMinutes();
     if(min<10){
-    let min=`0${min}`;
+       min=`0${min}`;
     }
     return `${hour}:${min}`;
 }
+
+
 function showWeather(response){
    console.log(response.data);
    let city=document.querySelector("h1");
@@ -61,6 +63,44 @@ function showWeather(response){
    tempC.innerHTML=`${Math.round(celsiusTemperature)}`;
    let tempC1=document.querySelector("#tempNumber1");
    tempC1.innerHTML=`${Math.round(celsiusTemperature1)}`;
+   let roundCelsiusTemperature1= Math.round(celsiusTemperature1)
+   if (roundCelsiusTemperature1<=0){
+    document.querySelector("#action").innerHTML=`It is freezing cold!`;
+    document.querySelector("#app").classList.add("freezingCold");
+    document.querySelector("#app").classList.remove("cold");
+    document.querySelector("#app").classList.remove("cool");
+    document.querySelector("#app").classList.remove("comfortable");
+    document.querySelector("#app").classList.remove("hot");
+   }else if (0<roundCelsiusTemperature1 && roundCelsiusTemperature1<=10){
+    document.querySelector("#action").innerHTML=`Keep yourself warm!`;
+    document.querySelector("#app").classList.remove("freezingCold");
+    document.querySelector("#app").classList.add("cold");
+    document.querySelector("#app").classList.remove("cool");
+    document.querySelector("#app").classList.remove("comfortable");
+    document.querySelector("#app").classList.remove("hot");
+   }else if (10<roundCelsiusTemperature1 && roundCelsiusTemperature1<=20){
+    document.querySelector("#action").innerHTML=`A jacket is still needed!`;
+    document.querySelector("#app").classList.remove("freezingCold");
+    document.querySelector("#app").classList.remove("cold");
+    document.querySelector("#app").classList.add("cool");
+    document.querySelector("#app").classList.remove("comfortable");
+    document.querySelector("#app").classList.remove("hot");
+   }else if (20<roundCelsiusTemperature1 && roundCelsiusTemperature1<=30){
+    document.querySelector("#action").innerHTML=`Such a comfortable temperature!`;
+    document.querySelector("#app").classList.remove("freezingCold");
+    document.querySelector("#app").classList.remove("cold");
+    document.querySelector("#app").classList.remove("cool");
+    document.querySelector("#app").classList.add("comfortable");
+    document.querySelector("#app").classList.remove("hot");
+   }else if (roundCelsiusTemperature1>30){
+    document.querySelector("#action").innerHTML=`Find a way to cool yourself down!`;
+    document.querySelector("#app").classList.remove("freezingCold");
+    document.querySelector("#app").classList.remove("cold");
+    document.querySelector("#app").classList.remove("cool");
+    document.querySelector("#app").classList.remove("comfortable");
+    document.querySelector("#app").classList.add("hot");
+   }
+
    let updateCondition=document.querySelector("#condition");
    updateCondition.innerHTML=`${response.data.weather[0].description}`;
    document.querySelector("#humidity").innerHTML=`${response.data.main.humidity}`;
@@ -103,6 +143,12 @@ function displayForecast(response){
     document.querySelector("#icon4").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.list[3].weather[0].icon}@2x.png`);
     document.querySelector("#icon5").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.list[4].weather[0].icon}@2x.png`);
     document.querySelector("#icon6").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.list[5].weather[0].icon}@2x.png`);
+    document.querySelector("#time1").innerHTML= `${formatTime(response.data.list[0].dt*1000)}`;
+    document.querySelector("#time2").innerHTML= `${formatTime(response.data.list[1].dt*1000)}`;
+    document.querySelector("#time3").innerHTML= `${formatTime(response.data.list[2].dt*1000)}`;
+    document.querySelector("#time4").innerHTML= `${formatTime(response.data.list[3].dt*1000)}`;
+    document.querySelector("#time5").innerHTML= `${formatTime(response.data.list[4].dt*1000)}`;
+    document.querySelector("#time6").innerHTML= `${formatTime(response.data.list[5].dt*1000)}`;
 }
 
 function searchInitial(city){
@@ -151,6 +197,7 @@ function showPosition()
    tempC.innerHTML=`${Math.round(celsiusTemperature)}`;
    let tempC1=document.querySelector("#tempNumber1");
    tempC1.innerHTML=`${Math.round(celsiusTemperature1)}`;
+
    let updateCondition=document.querySelector("#condition");
    updateCondition.innerHTML=`${response.data.weather[0].description}`;
    document.querySelector("#humidity").innerHTML=`${response.data.main.humidity}`;

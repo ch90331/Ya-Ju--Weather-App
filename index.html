@@ -22,13 +22,13 @@
     />
   </head>
   <body>
-    <div class="container">
+  <div class="container">
+    <div class="weatherAppWrapper" id="app">
       <p class="city">
         <i class="fas fa-baby"></i> <span><a href="#" id="city-birth"></a></span>
         <span class="home"> <i class="fas fa-home"></i> <span><a href="#" id="city-living"></a></span> </span>
         <span> <i class="fas fa-plane-departure"></i><span><a href="#" id="nextTrip"></a></span></span>
       </p>
-      <br />
       <form id="search-form">
         <div class="form-group">
           <input type="text" id="form-text" placeholder="🔎 Enter a city" />
@@ -48,6 +48,8 @@
       </p>
 
       <h2>
+      <div class="row">
+        <span class="col-6">
         <span id="condition"></span> <img src="https://ssl.gstatic.com/onebox/weather/64/rain_light.png" alt="rain" id="iconElement"/>
         <span id="tempNumber"></span>
         <span class="units">
@@ -55,15 +57,18 @@
           <a href="#" id="f-link">°F</a>
         </span>
         <small>
-          <div>
-            <i class="fas fa-thermometer-half"></i> Real feel:
-            <span id="tempNumber1"></span>
-            <span class="units1">
-              <a href="#" id="c-link1" class="active">°C</a> |
-              <a href="#" id="f-link1">°F</a>
-            </span>
-          </div>
+        <div>
+          <i class="fas fa-thermometer-half"></i> Real feel:
+          <span id="tempNumber1"></span>
+          <span class="units1">
+            <a href="#" id="c-link1" class="active">°C</a> |
+            <a href="#" id="f-link1">°F</a>
+          </span>
+        </div>
         </small>
+        </span>
+        <span class="col-6" id="action"></span>
+      </div>
       </h2>
 
       <div class="extrainfo">
@@ -119,7 +124,9 @@
           <div class="col-2"><strong><span id="tempH5"></span>°</strong> <span id="tempL5"></span>°</div>
           <div class="col-2"><strong><span id="tempH6"></span>°</strong> <span id="tempL6"></span>°</div>
         </div>
+      </div>
     </div>
+  </div>
       
     <p class="github">
     <a href="https://github.com/ch90331/Ya-Ju--Weather-App" target="_blank">Open-source code</a>
