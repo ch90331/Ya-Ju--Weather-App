@@ -65,35 +65,43 @@ function showWeather(response){
    tempC1.innerHTML=`${Math.round(celsiusTemperature1)}`;
    let roundCelsiusTemperature1= Math.round(celsiusTemperature1)
    if (roundCelsiusTemperature1<=0){
-    document.querySelector("#action").innerHTML=`It is freezing cold!`;
+    document.querySelector("#action").innerHTML=`Don't forget your🧤, 🧣 and 🧥 when you go out!`;
     document.querySelector("#app").classList.add("freezingCold");
     document.querySelector("#app").classList.remove("cold");
     document.querySelector("#app").classList.remove("cool");
     document.querySelector("#app").classList.remove("comfortable");
     document.querySelector("#app").classList.remove("hot");
    }else if (0<roundCelsiusTemperature1 && roundCelsiusTemperature1<=10){
-    document.querySelector("#action").innerHTML=`Keep yourself warm!`;
+    document.querySelector("#action").innerHTML=`Stay indoors to have 🍵 or ☕!`;
     document.querySelector("#app").classList.remove("freezingCold");
     document.querySelector("#app").classList.add("cold");
     document.querySelector("#app").classList.remove("cool");
     document.querySelector("#app").classList.remove("comfortable");
     document.querySelector("#app").classList.remove("hot");
    }else if (10<roundCelsiusTemperature1 && roundCelsiusTemperature1<=20){
-    document.querySelector("#action").innerHTML=`A jacket is still needed!`;
+    document.querySelector("#action").innerHTML=`A jacket 🧥 is still needed!`;
     document.querySelector("#app").classList.remove("freezingCold");
     document.querySelector("#app").classList.remove("cold");
     document.querySelector("#app").classList.add("cool");
     document.querySelector("#app").classList.remove("comfortable");
     document.querySelector("#app").classList.remove("hot");
    }else if (20<roundCelsiusTemperature1 && roundCelsiusTemperature1<=30){
-    document.querySelector("#action").innerHTML=`Such a comfortable temperature!`;
+    document.querySelector("#action").innerHTML=`Comfortable temperature to plan some activities 🚵🏻‍♀️🧘🏻‍♀️🧗🏻‍♀️!`;
     document.querySelector("#app").classList.remove("freezingCold");
     document.querySelector("#app").classList.remove("cold");
     document.querySelector("#app").classList.remove("cool");
     document.querySelector("#app").classList.add("comfortable");
     document.querySelector("#app").classList.remove("hot");
    }else if (roundCelsiusTemperature1>30){
-    document.querySelector("#action").innerHTML=`Find a way to cool yourself down!`;
+    document.querySelector("#action").innerHTML=`Find a way to cool yourself down😋!`;
+
+    var newImg2= document.createElement(`img`);
+    newImg2.setAttribute(`src`,`images/Taiwan_Beer.png`);
+    newImg2.style.width="90px";
+    newImg2.style.height="100px";
+    var addHere2=document.getElementById("action");
+    addHere2.appendChild(newImg2);
+
     document.querySelector("#app").classList.remove("freezingCold");
     document.querySelector("#app").classList.remove("cold");
     document.querySelector("#app").classList.remove("cool");
@@ -197,6 +205,50 @@ function showPosition()
    tempC.innerHTML=`${Math.round(celsiusTemperature)}`;
    let tempC1=document.querySelector("#tempNumber1");
    tempC1.innerHTML=`${Math.round(celsiusTemperature1)}`;
+
+   let roundCelsiusTemperature1= Math.round(celsiusTemperature1)
+   if (roundCelsiusTemperature1<=0){
+    document.querySelector("#action").innerHTML=`Don't forget your🧤, 🧣 and 🧥 when you go out!`;
+    document.querySelector("#app").classList.add("freezingCold");
+    document.querySelector("#app").classList.remove("cold");
+    document.querySelector("#app").classList.remove("cool");
+    document.querySelector("#app").classList.remove("comfortable");
+    document.querySelector("#app").classList.remove("hot");
+   }else if (0<roundCelsiusTemperature1 && roundCelsiusTemperature1<=10){
+    document.querySelector("#action").innerHTML=`Stay indoors to have 🍵 or ☕!`;
+    document.querySelector("#app").classList.remove("freezingCold");
+    document.querySelector("#app").classList.add("cold");
+    document.querySelector("#app").classList.remove("cool");
+    document.querySelector("#app").classList.remove("comfortable");
+    document.querySelector("#app").classList.remove("hot");
+   }else if (10<roundCelsiusTemperature1 && roundCelsiusTemperature1<=20){
+    document.querySelector("#action").innerHTML=`A jacket is still needed!`;
+    document.querySelector("#app").classList.remove("freezingCold");
+    document.querySelector("#app").classList.remove("cold");
+    document.querySelector("#app").classList.add("cool");
+    document.querySelector("#app").classList.remove("comfortable");
+    document.querySelector("#app").classList.remove("hot");
+   }else if (20<roundCelsiusTemperature1 && roundCelsiusTemperature1<=30){
+    document.querySelector("#action").innerHTML=`Comfortable temperature to plan some activities 🚵🏻‍♀️🧘🏻‍♀️🧗🏻‍♀️!`;
+    document.querySelector("#app").classList.remove("freezingCold");
+    document.querySelector("#app").classList.remove("cold");
+    document.querySelector("#app").classList.remove("cool");
+    document.querySelector("#app").classList.add("comfortable");
+    document.querySelector("#app").classList.remove("hot");
+   }else if (roundCelsiusTemperature1>30){
+    document.querySelector("#action").innerHTML=`Find a way to cool yourself down!`;
+    var newImg1= document.createElement(`img`);
+    newImg1.setAttribute(`src`,`images/Mango_Shaved_Ice.png`);
+    newImg1.style.width="90px";
+    newImg1.style.height="100px";
+    var addHere1=document.getElementById("action");
+    addHere1.appendChild(newImg1);
+    document.querySelector("#app").classList.remove("freezingCold");
+    document.querySelector("#app").classList.remove("cold");
+    document.querySelector("#app").classList.remove("cool");
+    document.querySelector("#app").classList.remove("comfortable");
+    document.querySelector("#app").classList.add("hot");
+   }
 
    let updateCondition=document.querySelector("#condition");
    updateCondition.innerHTML=`${response.data.weather[0].description}`;

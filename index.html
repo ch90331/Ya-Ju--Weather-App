@@ -50,12 +50,15 @@
       <h2>
       <div class="row">
         <span class="col-6">
-        <span id="condition"></span> <img src="https://ssl.gstatic.com/onebox/weather/64/rain_light.png" alt="rain" id="iconElement"/>
+        <span class="weatherCondition" id="condition"></span> 
+        <div>
+        <img src="https://ssl.gstatic.com/onebox/weather/64/rain_light.png" alt="rain" id="iconElement"/>
         <span id="tempNumber"></span>
         <span class="units">
           <a href="#" id="c-link" class="active">°C</a> |
           <a href="#" id="f-link">°F</a>
         </span>
+        </div>
         <small>
         <div>
           <i class="fas fa-thermometer-half"></i> Real feel:
@@ -67,7 +70,10 @@
         </div>
         </small>
         </span>
-        <span class="col-6" id="action"></span>
+        <span class="col-6">
+          <div class="action" id="action"></div>
+        </span>
+        </span>
       </div>
       </h2>
 
