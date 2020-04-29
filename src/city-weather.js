@@ -1,4 +1,4 @@
-let cityBirth= prompt("Where is your birthplace?👶🏻");
+let cityBirth= prompt("Where were you born?👶🏻");
 document.querySelector("#city-birth").innerHTML= `${cityBirth}`;
 
 function showCityBirth(event){
@@ -14,7 +14,7 @@ function showCityLiving(event){
     searchInitial(`${cityLiving}`);
 }
 
-let cityNext= prompt("Where is your next destination?🛫");
+let cityNext= prompt("Where will be your next destination?🛫");
 document.querySelector("#nextTrip").innerHTML= `${cityNext}`;
 
 function showCityNext(event){
@@ -93,7 +93,7 @@ function showWeather(response){
     document.querySelector("#app").classList.add("comfortable");
     document.querySelector("#app").classList.remove("hot");
    }else if (roundCelsiusTemperature1>30){
-    document.querySelector("#action").innerHTML=`Find a way to cool yourself down😋!`;
+    document.querySelector("#action").innerHTML=`🍻🍨Find a way to cool yourself down😋!`;
 
     var newImg2= document.createElement(`img`);
     newImg2.setAttribute(`src`,`images/Taiwan_Beer.png`);
@@ -156,7 +156,7 @@ function displayForecast(response){
     document.querySelector("#time3").innerHTML= `${formatTime(response.data.list[2].dt*1000)}`;
     document.querySelector("#time4").innerHTML= `${formatTime(response.data.list[3].dt*1000)}`;
     document.querySelector("#time5").innerHTML= `${formatTime(response.data.list[4].dt*1000)}`;
-    document.querySelector("#time6").innerHTML= `${formatTime(response.data.list[5].dt*1000)}`;
+    document.querySelector("#time6").innerHTML= `${formatTime(response.data.list[5].dt*1000)}`;  
 }
 
 function searchInitial(city){
@@ -222,7 +222,7 @@ function showPosition()
     document.querySelector("#app").classList.remove("comfortable");
     document.querySelector("#app").classList.remove("hot");
    }else if (10<roundCelsiusTemperature1 && roundCelsiusTemperature1<=20){
-    document.querySelector("#action").innerHTML=`A jacket is still needed!`;
+    document.querySelector("#action").innerHTML=`A jacket 🧥 is still needed!`;
     document.querySelector("#app").classList.remove("freezingCold");
     document.querySelector("#app").classList.remove("cold");
     document.querySelector("#app").classList.add("cool");
@@ -236,13 +236,15 @@ function showPosition()
     document.querySelector("#app").classList.add("comfortable");
     document.querySelector("#app").classList.remove("hot");
    }else if (roundCelsiusTemperature1>30){
-    document.querySelector("#action").innerHTML=`Find a way to cool yourself down!`;
-    var newImg1= document.createElement(`img`);
-    newImg1.setAttribute(`src`,`images/Mango_Shaved_Ice.png`);
-    newImg1.style.width="90px";
-    newImg1.style.height="100px";
-    var addHere1=document.getElementById("action");
-    addHere1.appendChild(newImg1);
+    document.querySelector("#action").innerHTML=`🍻🍨Find a way to cool yourself down😋!`;
+
+    var newImg2= document.createElement(`img`);
+    newImg2.setAttribute(`src`,`images/Taiwan_Beer.png`);
+    newImg2.style.width="90px";
+    newImg2.style.height="100px";
+    var addHere2=document.getElementById("action");
+    addHere2.appendChild(newImg2);
+
     document.querySelector("#app").classList.remove("freezingCold");
     document.querySelector("#app").classList.remove("cold");
     document.querySelector("#app").classList.remove("cool");
