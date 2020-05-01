@@ -65,14 +65,14 @@ function showWeather(response){
    tempC1.innerHTML=`${Math.round(celsiusTemperature1)}`;
    let roundCelsiusTemperature1= Math.round(celsiusTemperature1)
    if (roundCelsiusTemperature1<=0){
-    document.querySelector("#action").innerHTML=`Don't forget your🧤, 🧣 and 🧥 when you go out!`;
+    document.querySelector("#action").innerHTML=`Don't forget your🧤, 🧣 and 🧥 when you go out!🥶`;
     document.querySelector("#app").classList.add("freezingCold");
     document.querySelector("#app").classList.remove("cold");
     document.querySelector("#app").classList.remove("cool");
     document.querySelector("#app").classList.remove("comfortable");
     document.querySelector("#app").classList.remove("hot");
    }else if (0<roundCelsiusTemperature1 && roundCelsiusTemperature1<=10){
-    document.querySelector("#action").innerHTML=`Stay indoors to have 🍵 or ☕!`;
+    document.querySelector("#action").innerHTML=`🏚 Stay indoors to have 🍵 or ☕!`;
     document.querySelector("#app").classList.remove("freezingCold");
     document.querySelector("#app").classList.add("cold");
     document.querySelector("#app").classList.remove("cool");
@@ -86,14 +86,14 @@ function showWeather(response){
     document.querySelector("#app").classList.remove("comfortable");
     document.querySelector("#app").classList.remove("hot");
    }else if (20<roundCelsiusTemperature1 && roundCelsiusTemperature1<=30){
-    document.querySelector("#action").innerHTML=`Comfortable temperature to plan some activities 🚵🏻‍♀️🧘🏻‍♀️🧗🏻‍♀️!`;
+    document.querySelector("#action").innerHTML=`😊Comfortable temperature to plan some activities 🚵🏻‍♀️🧘🏻‍♀️🧗🏻‍♀️!`;
     document.querySelector("#app").classList.remove("freezingCold");
     document.querySelector("#app").classList.remove("cold");
     document.querySelector("#app").classList.remove("cool");
     document.querySelector("#app").classList.add("comfortable");
     document.querySelector("#app").classList.remove("hot");
    }else if (roundCelsiusTemperature1>30){
-    document.querySelector("#action").innerHTML=`🍻🍨Find a way to cool yourself down😋!`;
+    document.querySelector("#action").innerHTML=`🍻🍨Find a way to cool yourself down🥵!`;
 
     var newImg2= document.createElement(`img`);
     newImg2.setAttribute(`src`,`images/Taiwan_Beer.png`);
